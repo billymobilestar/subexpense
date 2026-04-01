@@ -159,37 +159,15 @@
       position: relative;
     }
     .phone-mockup {
-      width: 280px; height: 560px; border-radius: 40px;
-      background: linear-gradient(145deg, var(--dark-2), var(--dark-3));
-      border: 2px solid var(--glass-border);
+      width: 280px; border-radius: 32px;
+      overflow: hidden; position: relative;
       box-shadow:
         0 40px 80px rgba(0,0,0,0.5),
-        inset 0 1px 0 rgba(255,255,255,0.05);
-      display: flex; flex-direction: column; align-items: center;
-      padding: 16px; position: relative; overflow: hidden;
+        0 0 0 2px rgba(255,255,255,0.08);
     }
-    .phone-notch {
-      width: 120px; height: 28px; background: var(--dark);
-      border-radius: 0 0 16px 16px; margin-bottom: 20px;
+    .phone-mockup img {
+      width: 100%; height: auto; display: block;
     }
-    .phone-screen { flex: 1; width: 100%; display: flex; flex-direction: column; gap: 10px; padding: 0 4px; }
-    .phone-header { text-align: center; margin-bottom: 8px; }
-    .phone-header .amount { font-size: 2rem; font-weight: 800; color: var(--brand); }
-    .phone-header small { color: var(--text-muted); font-size: 0.7rem; }
-    .phone-item {
-      display: flex; align-items: center; gap: 10px;
-      background: rgba(255,255,255,0.04); border-radius: 10px;
-      padding: 10px 12px;
-    }
-    .phone-item-icon {
-      width: 32px; height: 32px; border-radius: 8px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 0.9rem; font-weight: 700; color: #fff; flex-shrink: 0;
-    }
-    .phone-item-info { flex: 1; }
-    .phone-item-name { font-size: 0.75rem; font-weight: 600; }
-    .phone-item-cycle { font-size: 0.6rem; color: var(--text-muted); }
-    .phone-item-price { font-size: 0.8rem; font-weight: 700; color: var(--brand); }
     .glow-orb {
       position: absolute; width: 300px; height: 300px;
       background: radial-gradient(circle, rgba(46,204,113,0.15), transparent 70%);
@@ -197,12 +175,37 @@
       top: 50%; left: 50%; transform: translate(-50%, -50%);
     }
 
+    /* Screenshot gallery */
+    .gallery-section {
+      padding: 80px 0; background: var(--dark);
+    }
+    .gallery-scroll {
+      display: flex; gap: 24px; overflow-x: auto;
+      padding: 20px 40px 40px; scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch; scrollbar-width: none;
+    }
+    .gallery-scroll::-webkit-scrollbar { display: none; }
+    .gallery-item {
+      flex-shrink: 0; width: 240px; scroll-snap-align: center;
+      transition: transform 0.3s ease;
+    }
+    .gallery-item:hover { transform: translateY(-8px); }
+    .gallery-item img {
+      width: 100%; border-radius: 24px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.06);
+    }
+    .gallery-item p {
+      text-align: center; margin-top: 12px;
+      font-size: 0.85rem; color: var(--text-muted); font-weight: 500;
+    }
+
     @media (max-width: 768px) {
       .hero-grid { grid-template-columns: 1fr; text-align: center; }
       .hero p { margin-left: auto; margin-right: auto; }
       .hero-buttons { justify-content: center; }
       .hero-visual { margin-top: 20px; }
-      .phone-mockup { width: 240px; height: 480px; }
+      .phone-mockup { width: 220px; }
+      .gallery-item { width: 200px; }
     }
 
     /* ---------- FEATURES ---------- */
@@ -360,33 +363,7 @@
       <div class="hero-visual fade-up" style="transition-delay: 0.15s;">
         <div class="glow-orb"></div>
         <div class="phone-mockup">
-          <div class="phone-notch"></div>
-          <div class="phone-screen">
-            <div class="phone-header">
-              <small>Monthly Spending</small>
-              <div class="amount">$84.97</div>
-            </div>
-            <div class="phone-item">
-              <div class="phone-item-icon" style="background:linear-gradient(135deg,#E50914,#B20710);">N</div>
-              <div class="phone-item-info"><div class="phone-item-name">Netflix</div><div class="phone-item-cycle">Monthly</div></div>
-              <div class="phone-item-price">$15.49</div>
-            </div>
-            <div class="phone-item">
-              <div class="phone-item-icon" style="background:linear-gradient(135deg,#1DB954,#1AA34A);">S</div>
-              <div class="phone-item-info"><div class="phone-item-name">Spotify</div><div class="phone-item-cycle">Monthly</div></div>
-              <div class="phone-item-price">$10.99</div>
-            </div>
-            <div class="phone-item">
-              <div class="phone-item-icon" style="background:linear-gradient(135deg,#00A8E1,#0078D4);">A</div>
-              <div class="phone-item-info"><div class="phone-item-name">Adobe CC</div><div class="phone-item-cycle">Monthly</div></div>
-              <div class="phone-item-price">$54.99</div>
-            </div>
-            <div class="phone-item">
-              <div class="phone-item-icon" style="background:linear-gradient(135deg,#6C5CE7,#5A4BD1);">D</div>
-              <div class="phone-item-info"><div class="phone-item-name">Disney+</div><div class="phone-item-cycle">Monthly</div></div>
-              <div class="phone-item-price">$13.99</div>
-            </div>
-          </div>
+          <img src="screenshots/home.jpeg" alt="SubExpense Home Screen" loading="lazy" />
         </div>
       </div>
     </div>
@@ -444,6 +421,58 @@
         <h3>Export Data</h3>
         <p>Download your subscription data as CSV or PDF reports. Perfect for budgeting, tax prep, or sharing.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- APP SCREENSHOTS -->
+<section class="gallery-section" id="screenshots">
+  <div class="container">
+    <div class="text-center fade-up" style="margin-bottom: 20px;">
+      <h2 style="font-size: 2rem; color: var(--text); margin-bottom: 8px;">See It in Action</h2>
+      <p style="color: var(--text-muted); max-width: 500px; margin: 0 auto;">Beautiful, intuitive, and packed with features to keep your finances on track.</p>
+    </div>
+  </div>
+  <div class="gallery-scroll">
+    <div class="gallery-item fade-up">
+      <img src="screenshots/home.jpeg" alt="Home Dashboard" loading="lazy" />
+      <p>Home Dashboard</p>
+    </div>
+    <div class="gallery-item fade-up" style="transition-delay:0.05s;">
+      <img src="screenshots/home-subs.jpeg" alt="Subscriptions View" loading="lazy" />
+      <p>Your Expenses</p>
+    </div>
+    <div class="gallery-item fade-up" style="transition-delay:0.1s;">
+      <img src="screenshots/subs.jpeg" alt="All Subscriptions" loading="lazy" />
+      <p>All Subscriptions</p>
+    </div>
+    <div class="gallery-item fade-up" style="transition-delay:0.15s;">
+      <img src="screenshots/onetime.jpeg" alt="One-time Expenses" loading="lazy" />
+      <p>One-time Expenses</p>
+    </div>
+    <div class="gallery-item fade-up" style="transition-delay:0.2s;">
+      <img src="screenshots/calendar.jpeg" alt="Calendar View" loading="lazy" />
+      <p>Payment Calendar</p>
+    </div>
+    <div class="gallery-item fade-up" style="transition-delay:0.25s;">
+      <img src="screenshots/insights.jpeg" alt="Smart Insights" loading="lazy" />
+      <p>Smart Insights</p>
+    </div>
+    <div class="gallery-item fade-up" style="transition-delay:0.3s;">
+      <img src="screenshots/tips.jpeg" alt="Smart Tips" loading="lazy" />
+      <p>Smart Tips</p>
+    </div>
+    <div class="gallery-item fade-up" style="transition-delay:0.35s;">
+      <img src="screenshots/breakdown.jpeg" alt="Spending Breakdown" loading="lazy" />
+      <p>Spending Breakdown</p>
+    </div>
+    <div class="gallery-item fade-up" style="transition-delay:0.4s;">
+      <img src="screenshots/add.jpeg" alt="Add Subscription" loading="lazy" />
+      <p>Add Subscription</p>
+    </div>
+    <div class="gallery-item fade-up" style="transition-delay:0.45s;">
+      <img src="screenshots/settings.jpeg" alt="Settings" loading="lazy" />
+      <p>Settings</p>
     </div>
   </div>
 </section>

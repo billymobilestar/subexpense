@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SubExpense - Track Every Subscription. Save Every Dollar.</title>
-  <meta name="description" content="SubExpense helps you track all your subscriptions in one place, get spending insights, and never miss a payment again." />
+  <title>SubExpense - Track Every Subscription. Manage Every Team.</title>
+  <meta name="description" content="SubExpense helps individuals and teams track subscriptions, manage company expenses, attach receipts, and control budgets -- all in one app." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -27,6 +27,8 @@
       --glass-border: rgba(255, 255, 255, 0.1);
       --radius: 16px;
       --radius-sm: 10px;
+      --enterprise: #4C6EF5;
+      --enterprise-2: #845EF7;
     }
 
     html { scroll-behavior: smooth; }
@@ -98,6 +100,7 @@
       text-transform: uppercase; letter-spacing: 2px; color: var(--brand);
       margin-bottom: 12px;
     }
+    .section-tag.enterprise-tag { color: var(--enterprise); }
     .section-title {
       font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 800;
       line-height: 1.2; margin-bottom: 16px; letter-spacing: -0.5px;
@@ -138,6 +141,7 @@
       line-height: 1.08; letter-spacing: -1.5px; margin-bottom: 20px;
     }
     .hero h1 .green { color: var(--brand); }
+    .hero h1 .purple { color: var(--enterprise-2); }
     .hero p {
       font-size: 1.1rem; color: var(--text-muted);
       max-width: 480px; line-height: 1.7; margin-bottom: 36px;
@@ -225,17 +229,77 @@
       border-color: rgba(46, 204, 113, 0.3);
       box-shadow: 0 16px 48px rgba(0, 0, 0, 0.3);
     }
+    .feature-card.enterprise-card:hover {
+      border-color: rgba(76, 110, 245, 0.4);
+    }
     .feature-icon {
       width: 48px; height: 48px; border-radius: 12px;
       background: linear-gradient(135deg, var(--brand), var(--accent));
       display: flex; align-items: center; justify-content: center;
       margin-bottom: 20px; font-size: 1.3rem;
     }
+    .feature-icon.enterprise-icon {
+      background: linear-gradient(135deg, var(--enterprise), var(--enterprise-2));
+    }
     .feature-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; }
     .feature-card p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; }
+    .feature-badge {
+      display: inline-block; font-size: 0.6rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1px; background: linear-gradient(135deg, var(--enterprise), var(--enterprise-2));
+      color: #fff; padding: 3px 8px; border-radius: 4px; margin-left: 8px; vertical-align: middle;
+    }
 
     @media (max-width: 900px) { .features-grid { grid-template-columns: repeat(2, 1fr); } }
     @media (max-width: 560px) { .features-grid { grid-template-columns: 1fr; } }
+
+    /* ---------- FOR TEAMS / ENTERPRISE SECTION ---------- */
+    .enterprise-section {
+      background:
+        radial-gradient(ellipse 70% 50% at 50% 0%, rgba(76, 110, 245, 0.1) 0%, transparent 60%),
+        var(--dark);
+    }
+    .enterprise-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 60px; align-items: center; margin-top: 56px;
+    }
+    .enterprise-features-list { list-style: none; display: flex; flex-direction: column; gap: 24px; }
+    .enterprise-features-list li {
+      display: flex; gap: 16px; align-items: flex-start;
+    }
+    .ent-icon {
+      flex-shrink: 0; width: 44px; height: 44px; border-radius: 12px;
+      background: linear-gradient(135deg, var(--enterprise), var(--enterprise-2));
+      display: flex; align-items: center; justify-content: center;
+    }
+    .ent-icon svg { width: 22px; height: 22px; }
+    .enterprise-features-list h4 { font-size: 1rem; font-weight: 700; margin-bottom: 4px; }
+    .enterprise-features-list p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; }
+    .enterprise-visual {
+      display: flex; flex-direction: column; gap: 20px;
+    }
+    .ent-card {
+      background: var(--glass-bg); border: 1px solid rgba(76, 110, 245, 0.2);
+      border-radius: var(--radius); padding: 28px;
+      backdrop-filter: blur(12px);
+      transition: transform 0.3s, border-color 0.3s;
+    }
+    .ent-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(76, 110, 245, 0.4);
+    }
+    .ent-card h4 { font-size: 1rem; font-weight: 700; margin-bottom: 6px; }
+    .ent-card h4 .ent-highlight { color: var(--enterprise); }
+    .ent-card p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; }
+    .ent-card .role-badges { display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
+    .role-badge {
+      font-size: 0.7rem; font-weight: 600; padding: 4px 10px; border-radius: 6px;
+      border: 1px solid rgba(76, 110, 245, 0.3); color: var(--enterprise);
+      background: rgba(76, 110, 245, 0.08);
+    }
+
+    @media (max-width: 768px) {
+      .enterprise-grid { grid-template-columns: 1fr; }
+    }
 
     /* ---------- HOW IT WORKS ---------- */
     .steps {
@@ -263,6 +327,38 @@
     @media (max-width: 700px) {
       .steps { grid-template-columns: 1fr; gap: 48px; }
       .steps::before { display: none; }
+    }
+
+    /* ---------- BANK LINKING WAITLIST ---------- */
+    .waitlist-section {
+      background: var(--dark-2);
+    }
+    .waitlist-box {
+      max-width: 680px; margin: 40px auto 0; text-align: center;
+      background: var(--glass-bg); border: 1px solid var(--glass-border);
+      border-radius: var(--radius); padding: 48px 40px;
+      backdrop-filter: blur(12px);
+      position: relative; overflow: hidden;
+    }
+    .waitlist-box::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--brand), var(--enterprise), var(--enterprise-2));
+    }
+    .waitlist-box h3 { font-size: 1.4rem; font-weight: 800; margin-bottom: 12px; }
+    .waitlist-box p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 28px; max-width: 480px; margin-left: auto; margin-right: auto; }
+    .waitlist-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(76, 110, 245, 0.12); border: 1px solid rgba(76, 110, 245, 0.3);
+      padding: 10px 24px; border-radius: 100px; font-size: 0.9rem;
+      font-weight: 600; color: var(--enterprise); cursor: default;
+    }
+    .waitlist-badge::before {
+      content: ''; width: 8px; height: 8px; background: var(--enterprise);
+      border-radius: 50%; animation: pulse-dot 2s infinite;
+    }
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
     }
 
     /* ---------- PRIVACY ---------- */
@@ -331,6 +427,7 @@
     <a href="#" class="nav-logo">Sub<span>Expense</span></a>
     <ul class="nav-links" id="navLinks">
       <li><a href="#features">Features</a></li>
+      <li><a href="#for-teams">For Teams</a></li>
       <li><a href="#how-it-works">How It Works</a></li>
       <li><a href="#privacy">Privacy</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -347,8 +444,8 @@
     <div class="hero-grid">
       <div class="fade-up">
         <div class="hero-tag">Now Available</div>
-        <h1>Track every subscription.<br><span class="green">Save every dollar.</span></h1>
-        <p>SubExpense keeps all your subscriptions in one place. Get smart insights, timely reminders, and full control over your recurring expenses.</p>
+        <h1>Track every subscription.<br><span class="green">Personal</span> &amp; <span class="purple">Enterprise.</span></h1>
+        <p>SubExpense keeps all your subscriptions in one place -- for you and your team. Get smart insights, manage company expenses, track receipts, and control budgets across your entire organization.</p>
         <div class="hero-buttons">
           <a href="#" class="store-btn">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 21.99 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.1 21.99C7.79 22.03 6.8 20.68 5.96 19.47C4.25 16.97 2.94 12.45 4.7 9.39C5.57 7.87 7.13 6.91 8.82 6.88C10.1 6.86 11.32 7.75 12.11 7.75C12.89 7.75 14.37 6.68 15.92 6.84C16.57 6.87 18.39 7.1 19.56 8.82C19.47 8.88 17.39 10.1 17.41 12.63C17.44 15.65 20.06 16.66 20.09 16.67C20.06 16.74 19.67 18.11 18.71 19.5ZM13 3.5C13.73 2.67 14.94 2.04 15.94 2C16.07 3.17 15.6 4.35 14.9 5.19C14.21 6.04 13.07 6.7 11.95 6.61C11.8 5.46 12.36 4.26 13 3.5Z"/></svg>
@@ -375,31 +472,66 @@
   <div class="container">
     <div class="text-center fade-up">
       <div class="section-tag">Features</div>
-      <h2 class="section-title">Everything you need to<br>manage subscriptions</h2>
-      <p class="section-sub mx-auto">Powerful tools wrapped in a beautiful, intuitive interface.</p>
+      <h2 class="section-title">Everything you need to manage<br>subscriptions &amp; expenses</h2>
+      <p class="section-sub mx-auto">Powerful tools for individuals and teams, wrapped in a beautiful, intuitive interface.</p>
     </div>
     <div class="features-grid">
+
+      <!-- Smart Tracking -->
       <div class="feature-card fade-up">
         <div class="feature-icon">
           <svg width="24" height="24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
         </div>
         <h3>Smart Tracking</h3>
-        <p>Choose from 75+ preset subscriptions or add your own custom entries. Every recurring charge, captured effortlessly.</p>
+        <p>Choose from 140+ preset subscriptions or add your own custom entries. Every recurring charge, captured effortlessly.</p>
       </div>
-      <div class="feature-card fade-up" style="transition-delay:0.08s;">
+
+      <!-- Payment Cards -->
+      <div class="feature-card fade-up" style="transition-delay:0.06s;">
+        <div class="feature-icon">
+          <svg width="24" height="24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+        </div>
+        <h3>Payment Card Tracking</h3>
+        <p>140+ preset cards with real bank designs. Build custom cards, track personal and company payment methods in one place.</p>
+      </div>
+
+      <!-- Spending Insights -->
+      <div class="feature-card fade-up" style="transition-delay:0.12s;">
         <div class="feature-icon">
           <svg width="24" height="24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M21 12V7H5a2 2 0 010-4h14v4"/><path d="M3 5v14a2 2 0 002 2h16v-5"/><path d="M18 12a2 2 0 000 4h4v-4h-4z"/></svg>
         </div>
         <h3>Spending Insights</h3>
         <p>See how subscriptions stack up against your income. Get smart tips and visual breakdowns to optimize spending.</p>
       </div>
-      <div class="feature-card fade-up" style="transition-delay:0.16s;">
+
+      <!-- Calendar View -->
+      <div class="feature-card fade-up" style="transition-delay:0.06s;">
         <div class="feature-icon">
           <svg width="24" height="24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
         </div>
         <h3>Calendar View</h3>
         <p>Visualize upcoming payments on an interactive calendar. Know exactly when every charge hits your account.</p>
       </div>
+
+      <!-- Currency Converter -->
+      <div class="feature-card fade-up" style="transition-delay:0.12s;">
+        <div class="feature-icon">
+          <svg width="24" height="24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/><path d="M12 8v8"/></svg>
+        </div>
+        <h3>Inline Currency Converter</h3>
+        <p>Convert between currencies right when adding expenses. Perfect for international subscriptions and travel charges.</p>
+      </div>
+
+      <!-- Receipt & Reimbursement -->
+      <div class="feature-card enterprise-card fade-up" style="transition-delay:0.18s;">
+        <div class="feature-icon enterprise-icon">
+          <svg width="24" height="24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        </div>
+        <h3>Receipts &amp; Reimbursement <span class="feature-badge">Teams</span></h3>
+        <p>Attach receipt photos, mark expenses as reimbursable, submit for approval, and export as ZIP with PDF reports.</p>
+      </div>
+
+      <!-- Notifications -->
       <div class="feature-card fade-up" style="transition-delay:0.06s;">
         <div class="feature-icon">
           <svg width="24" height="24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>
@@ -407,20 +539,110 @@
         <h3>Notifications</h3>
         <p>Persistent reminders 2 days before every renewal. Never be caught off guard by a surprise charge again.</p>
       </div>
-      <div class="feature-card fade-up" style="transition-delay:0.14s;">
+
+      <!-- Dark Mode -->
+      <div class="feature-card fade-up" style="transition-delay:0.12s;">
         <div class="feature-icon">
           <svg width="24" height="24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
         </div>
         <h3>Dark Mode</h3>
         <p>Beautiful light and dark themes that adapt to your preference. Easy on the eyes, day or night.</p>
       </div>
-      <div class="feature-card fade-up" style="transition-delay:0.22s;">
+
+      <!-- Export Data -->
+      <div class="feature-card fade-up" style="transition-delay:0.18s;">
         <div class="feature-icon">
           <svg width="24" height="24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
         </div>
         <h3>Export Data</h3>
-        <p>Download your subscription data as CSV or PDF reports. Perfect for budgeting, tax prep, or sharing.</p>
+        <p>Download your data as CSV, PDF reports, or ZIP archives with receipts. Perfect for budgeting, tax prep, or sharing.</p>
       </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOR TEAMS / ENTERPRISE -->
+<section id="for-teams" class="enterprise-section">
+  <div class="container">
+    <div class="fade-up">
+      <div class="section-tag enterprise-tag">For Teams</div>
+      <h2 class="section-title">Company expense management,<br>built right in</h2>
+      <p class="section-sub">Create a company profile, invite your team, and manage subscriptions and expenses across your entire organization -- all from the same app.</p>
+    </div>
+    <div class="enterprise-grid">
+
+      <!-- Left: Feature list -->
+      <ul class="enterprise-features-list fade-up">
+        <li>
+          <div class="ent-icon">
+            <svg width="22" height="22" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <div>
+            <h4>Company Profiles</h4>
+            <p>Create or join a company. Keep personal and work expenses completely separate with dedicated views for each.</p>
+          </div>
+        </li>
+        <li>
+          <div class="ent-icon">
+            <svg width="22" height="22" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+          <div>
+            <h4>Team Invitations</h4>
+            <p>Invite team members via a unique company code. New members join instantly with the right role and permissions.</p>
+          </div>
+        </li>
+        <li>
+          <div class="ent-icon">
+            <svg width="22" height="22" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+          </div>
+          <div>
+            <h4>Card Assignment</h4>
+            <p>Assign company payment cards to specific employees. Track who is spending on which card with full visibility.</p>
+          </div>
+        </li>
+        <li>
+          <div class="ent-icon">
+            <svg width="22" height="22" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+          </div>
+          <div>
+            <h4>Per-Employee Budgets</h4>
+            <p>Admins set spending budgets for each employee. Get automatic warnings when anyone goes over budget.</p>
+          </div>
+        </li>
+        <li>
+          <div class="ent-icon">
+            <svg width="22" height="22" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          </div>
+          <div>
+            <h4>Reimbursement Workflow</h4>
+            <p>Employees submit expenses with receipts for reimbursement. Admins approve or reject with a single tap.</p>
+          </div>
+        </li>
+      </ul>
+
+      <!-- Right: Visual cards -->
+      <div class="enterprise-visual fade-up" style="transition-delay: 0.12s;">
+        <div class="ent-card">
+          <h4><span class="ent-highlight">Organization</span> Management</h4>
+          <p>Full control over your company profile. Upload your logo, manage members, and set roles for everyone on the team.</p>
+          <div class="role-badges">
+            <span class="role-badge">Owner</span>
+            <span class="role-badge">Admin</span>
+            <span class="role-badge">Member</span>
+            <span class="role-badge">Viewer</span>
+          </div>
+        </div>
+        <div class="ent-card">
+          <h4><span class="ent-highlight">Receipt</span> Attachments</h4>
+          <p>Attach photos of receipts to any expense. All receipts are stored securely and can be exported as a ZIP archive alongside PDF reports for accounting.</p>
+        </div>
+        <div class="ent-card">
+          <h4><span class="ent-highlight">Company</span> Cards</h4>
+          <p>Add company payment cards using 140+ real bank card presets or build a custom one. Assign cards to employees and see spending per card at a glance.</p>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -489,7 +711,7 @@
       <div class="step fade-up">
         <div class="step-number">1</div>
         <h3>Add Subscriptions</h3>
-        <p>Pick from 75+ presets or create custom entries. Set the price, billing cycle, and renewal date.</p>
+        <p>Pick from 140+ presets or create custom entries. Set the price, billing cycle, and renewal date.</p>
       </div>
       <div class="step fade-up" style="transition-delay:0.12s;">
         <div class="step-number">2</div>
@@ -505,6 +727,22 @@
   </div>
 </section>
 
+<!-- BANK LINKING WAITLIST -->
+<section class="waitlist-section" id="bank-linking">
+  <div class="container">
+    <div class="text-center fade-up">
+      <div class="section-tag enterprise-tag">Coming Soon</div>
+      <h2 class="section-title">Bank Linking</h2>
+      <p class="section-sub mx-auto">Connect your bank accounts to automatically detect and import subscriptions from your transactions. No more manual entry.</p>
+    </div>
+    <div class="waitlist-box fade-up">
+      <h3>Auto-detect your subscriptions</h3>
+      <p>We are building direct bank integrations to scan your transactions and surface every recurring charge automatically. Be the first to know when it launches.</p>
+      <div class="waitlist-badge">Coming Soon -- Stay Tuned</div>
+    </div>
+  </div>
+</section>
+
 <!-- PRIVACY POLICY -->
 <section id="privacy" class="privacy-section">
   <div class="container">
@@ -514,7 +752,7 @@
       <p class="section-sub">Your privacy matters to us. Here is how SubExpense handles your data.</p>
     </div>
     <div class="privacy-content fade-up">
-      <p><strong>Effective Date:</strong> March 31, 2026</p>
+      <p><strong>Effective Date:</strong> April 3, 2026</p>
 
       <p>SubExpense ("we", "our", or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your information when you use the SubExpense mobile application (the "App").</p>
 
@@ -522,50 +760,56 @@
       <p>We may collect the following types of information:</p>
       <ul>
         <li><strong>Account Information:</strong> When you sign in using Google Sign-In, we receive your name, email address, and profile picture from your Google account.</li>
-        <li><strong>Subscription Data:</strong> Information you enter about your subscriptions, including service names, costs, billing cycles, and renewal dates.</li>
+        <li><strong>Subscription &amp; Expense Data:</strong> Information you enter about your subscriptions and expenses, including service names, costs, billing cycles, renewal dates, and payment card details.</li>
+        <li><strong>Receipt Data:</strong> Photos and images of receipts you attach to expenses for reimbursement or record-keeping purposes.</li>
+        <li><strong>Organization Data:</strong> If you create or join a company profile, we collect the company name, company logo, member roles, invite codes, budget settings, card assignments, and reimbursement records associated with the organization.</li>
         <li><strong>Usage Data:</strong> Anonymous analytics about how you interact with the App, such as features used and session duration.</li>
-        <li><strong>Device Information:</strong> Device type, operating system version, and unique device identifiers for analytics and advertising purposes.</li>
+        <li><strong>Device Information:</strong> Device type, operating system version, and unique device identifiers for analytics purposes.</li>
       </ul>
 
       <h3>2. How We Use Your Data</h3>
       <p>We use the information we collect to:</p>
       <ul>
         <li>Provide, maintain, and improve the App's functionality</li>
-        <li>Sync your subscription data across devices via your account</li>
+        <li>Sync your subscription and expense data across devices via your account</li>
         <li>Send you notifications about upcoming subscription renewals</li>
         <li>Generate spending insights and personalized recommendations</li>
-        <li>Display relevant advertisements within the App</li>
+        <li>Store and display receipt images attached to your expenses</li>
+        <li>Facilitate organization features including team management, reimbursement workflows, budget tracking, and card assignment</li>
         <li>Analyze usage trends to improve user experience</li>
       </ul>
 
       <h3>3. Third-Party Services</h3>
       <p>SubExpense integrates with the following third-party services:</p>
       <ul>
-        <li><strong>Supabase:</strong> We use Supabase as our backend service for authentication and data storage. Your subscription data is stored securely on Supabase servers. Please review <a href="https://supabase.com/privacy" target="_blank" rel="noopener">Supabase's Privacy Policy</a>.</li>
-        <li><strong>Google AdMob:</strong> We use Google AdMob to display advertisements. AdMob may collect device information and use advertising identifiers to serve personalized ads. Please review <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>.</li>
+        <li><strong>Supabase:</strong> We use Supabase as our backend service for authentication, data storage, and receipt image storage. Your subscription data, organization data, and receipt images are stored securely on Supabase servers. Please review <a href="https://supabase.com/privacy" target="_blank" rel="noopener">Supabase's Privacy Policy</a>.</li>
         <li><strong>Google Sign-In:</strong> We use Google Sign-In for authentication. This service provides us with your basic profile information. Please review <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>.</li>
       </ul>
 
       <h3>4. Data Storage and Security</h3>
-      <p>Your data is stored securely using Supabase's cloud infrastructure. We implement appropriate technical and organizational measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction. However, no method of electronic storage is 100% secure, and we cannot guarantee absolute security.</p>
+      <p>Your data is stored securely using Supabase's cloud infrastructure. Receipt images are stored in secure cloud storage buckets with access controls. We implement appropriate technical and organizational measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction. However, no method of electronic storage is 100% secure, and we cannot guarantee absolute security.</p>
 
-      <h3>5. Advertising</h3>
-      <p>SubExpense displays advertisements through Google AdMob. These ads may be personalized based on your interests and device information. You can opt out of personalized advertising through your device settings:</p>
+      <h3>5. Organization &amp; Team Data</h3>
+      <p>When you create or join a company profile, certain data is shared within your organization based on member roles:</p>
       <ul>
-        <li><strong>iOS:</strong> Settings &gt; Privacy &amp; Security &gt; Tracking</li>
-        <li><strong>Android:</strong> Settings &gt; Google &gt; Ads &gt; Opt out of Ads Personalization</li>
+        <li>Owners and admins can view all company expenses, receipts, and reimbursement requests</li>
+        <li>Admins can set per-employee budgets and assign company cards to members</li>
+        <li>Members can submit expenses and reimbursement requests visible to admins</li>
+        <li>Viewers have read-only access to company expense summaries</li>
       </ul>
+      <p>Your personal expenses remain private and are never shared with your organization.</p>
 
       <h3>6. Data Sharing</h3>
-      <p>We do not sell your personal information to third parties. We may share your information only in the following circumstances:</p>
+      <p>We do not sell your personal information to third parties. SubExpense does not display advertisements. We may share your information only in the following circumstances:</p>
       <ul>
         <li>With third-party service providers (as described above) to operate the App</li>
+        <li>Within your organization, according to role-based permissions you have accepted</li>
         <li>When required by law or to respond to legal processes</li>
         <li>To protect the rights, property, or safety of SubExpense, our users, or the public</li>
       </ul>
 
       <h3>7. Data Retention</h3>
-      <p>We retain your data for as long as your account is active or as needed to provide you with the App's services. If you delete your account, we will delete your personal data within 30 days, except where we are required to retain it by law.</p>
+      <p>We retain your data for as long as your account is active or as needed to provide you with the App's services. Receipt images are retained as long as the associated expense exists. If you delete your account, we will delete your personal data, including all receipt images, within 30 days, except where we are required to retain it by law.</p>
 
       <h3>8. Children's Privacy</h3>
       <p>SubExpense is not intended for children under the age of 13. We do not knowingly collect personal information from children under 13. If we become aware that we have collected personal data from a child under 13, we will take steps to delete that information promptly.</p>
@@ -593,6 +837,8 @@
         <li style="padding: 8px 0; border-bottom: 1px solid var(--dark-3);">&#10003; &nbsp; All subscriptions and recurring expenses</li>
         <li style="padding: 8px 0; border-bottom: 1px solid var(--dark-3);">&#10003; &nbsp; Income and spending data</li>
         <li style="padding: 8px 0; border-bottom: 1px solid var(--dark-3);">&#10003; &nbsp; Custom icons and preferences</li>
+        <li style="padding: 8px 0; border-bottom: 1px solid var(--dark-3);">&#10003; &nbsp; All receipt images and attachments</li>
+        <li style="padding: 8px 0; border-bottom: 1px solid var(--dark-3);">&#10003; &nbsp; Payment card data</li>
         <li style="padding: 8px 0; border-bottom: 1px solid var(--dark-3);">&#10003; &nbsp; Linked account connections</li>
         <li style="padding: 8px 0;">&#10003; &nbsp; All notification schedules</li>
       </ul>
@@ -609,7 +855,7 @@
         <p style="color: var(--text-muted);">Send an email to <a href="mailto:subexpense.app@gmail.com?subject=Account%20Deletion%20Request&body=Please%20delete%20my%20SubExpense%20account.%0A%0AEmail%20associated%20with%20my%20account%3A%20%5Byour%20email%5D" style="color: var(--brand);">subexpense.app@gmail.com</a> with the subject "Account Deletion Request" and the email address associated with your account. We will process your request within 48 hours.</p>
       </div>
 
-      <p style="color: var(--text-muted); font-size: 13px; margin-top: 16px;"><strong style="color: #FF6B6B;">Note:</strong> Account deletion is permanent and cannot be undone. Please export your data before deleting if you want to keep a copy.</p>
+      <p style="color: var(--text-muted); font-size: 13px; margin-top: 16px;"><strong style="color: #FF6B6B;">Note:</strong> Account deletion is permanent and cannot be undone. If you are an organization owner, you must transfer ownership or delete the organization before deleting your account. Please export your data before deleting if you want to keep a copy.</p>
     </div>
   </div>
 </section>
@@ -619,11 +865,12 @@
   <div class="footer-inner">
     <div class="footer-brand">
       <a href="#" class="nav-logo">Sub<span>Expense</span></a>
-      <p>Track every subscription. Save every dollar. Your personal subscription expense tracker.</p>
+      <p>Track every subscription. Manage every team. Your personal and enterprise expense tracker.</p>
     </div>
     <div class="footer-links">
       <h4>Navigate</h4>
       <a href="#features">Features</a>
+      <a href="#for-teams">For Teams</a>
       <a href="#how-it-works">How It Works</a>
       <a href="#privacy">Privacy Policy</a>
       <a href="#delete-account">Delete Account</a>

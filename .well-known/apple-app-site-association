@@ -1,0 +1,15 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["88N26N257Z.com.bigstonestudios.subexpense"],
+        "components": [
+          {
+            "/": "/oauth*",
+            "comment": "Plaid OAuth redirect — universal link handoff back to the app"
+          }
+        ]
+      }
+    ]
+  }
+}

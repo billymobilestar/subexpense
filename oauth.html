@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Returning to SubExpense...</title>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, sans-serif;
+      background: #0D1117; color: #E6EDF3;
+      min-height: 100vh; display: flex; align-items: center; justify-content: center;
+      padding: 24px;
+    }
+    .card {
+      max-width: 420px; width: 100%; text-align: center;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 18px; padding: 40px 28px;
+    }
+    .logo { font-size: 1.6rem; font-weight: 800; color: #2ECC71; margin-bottom: 4px; letter-spacing: -0.5px; }
+    .logo span { color: #E6EDF3; }
+    h1 { font-size: 1.3rem; font-weight: 700; margin: 24px 0 12px; }
+    p { color: #8B949E; line-height: 1.6; font-size: 0.95rem; }
+    .spinner {
+      width: 28px; height: 28px; margin: 16px auto 8px;
+      border: 3px solid rgba(46, 204, 113, 0.2);
+      border-top-color: #2ECC71;
+      border-radius: 50%;
+      animation: spin 0.9s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .btn {
+      display: inline-block; margin-top: 20px;
+      padding: 12px 24px; border-radius: 12px;
+      background: #2ECC71; color: white; text-decoration: none;
+      font-weight: 600; font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+<div class="card">
+  <div class="logo">Sub<span>Expense</span></div>
+  <div class="spinner"></div>
+  <h1>Returning to SubExpense</h1>
+  <p id="status">Finishing up your bank connection...</p>
+  <a id="fallback" class="btn" style="display:none;" href="https://apps.apple.com/ca/app/subexpense/id6762104378">
+    Open in App Store
+  </a>
+</div>
+<script>
+  // If the universal link doesn't open the app within ~2 seconds,
+  // show the fallback to install. (iOS handles the universal link
+  // automatically before this script even runs in most cases —
+  // this is purely for the rare miss case.)
+  setTimeout(function () {
+    document.getElementById('status').textContent =
+      'If the app didn’t open, install SubExpense to finish linking your bank.';
+    document.getElementById('fallback').style.display = 'inline-block';
+  }, 2200);
+</script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.subexpense.subexpense",
+      "sha256_cert_fingerprints": [
+        "27:42:88:B6:63:99:C8:B1:99:67:53:58:FB:B4:A4:40:FD:3C:2C:5E:47:0E:8D:40:80:CB:4B:FA:49:ED:2B:9B"
+      ]
+    }
+  }
+]
